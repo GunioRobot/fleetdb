@@ -3,11 +3,11 @@ package fleetdb;
 import clojure.lang.Keyword;
 import clojure.lang.Numbers;
 import clojure.lang.IPersistentVector;
-      
+
 public class Compare {
   static final Keyword NEG_INF = Keyword.intern(null, "neg-inf");
-  static final Keyword POS_INF = Keyword.intern(null, "pos-inf");  
-  
+  static final Keyword POS_INF = Keyword.intern(null, "pos-inf");
+
   public static void cannotCompare(Object a, Object b) throws FleetDBException {
     throw new FleetDBException(
       "Cannot compare " + a.toString() + " and " + b.toString());
@@ -54,27 +54,27 @@ public class Compare {
         "Cannot compare " + a.toString() + " and " + b.toString());
     }
   }
-  
+
   public static boolean eq(Object a, Object b) throws FleetDBException{
     return compare(a, b) == 0;
   }
-  
+
   public static boolean neq(Object a, Object b) throws FleetDBException {
     return compare(a, b) != 0;
   }
-  
+
   public static boolean lt(Object a, Object b) throws FleetDBException {
     return compare(a, b) < 0;
   }
-  
+
   public static boolean lte(Object a, Object b) throws FleetDBException {
     return compare(a, b) <= 0;
   }
-  
+
   public static boolean gt(Object a, Object b) throws FleetDBException {
     return compare(a, b) > 0;
   }
-  
+
   public static boolean gte(Object a, Object b) throws FleetDBException {
     return compare(a, b) >= 0;
   }
